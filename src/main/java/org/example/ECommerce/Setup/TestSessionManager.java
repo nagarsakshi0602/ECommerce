@@ -28,11 +28,11 @@ public class TestSessionManager {
         for (String string : configKeys) {
             try {
                 if (System.getProperty(string).isEmpty())
-                    config.put(string, getProperty("./resources/Config.properties", string));
+                    config.put(string, getProperty("src/main/resources/Config.properties", string));
                 else
                     config.put(string, System.getProperty(string));
             } catch (NullPointerException e) {
-                config.put(string, getProperty("./resources/Config.properties", string));
+                config.put(string, getProperty("src/main/resources/Config.properties", string));
             }
         }
         return config;

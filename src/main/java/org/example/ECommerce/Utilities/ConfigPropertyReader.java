@@ -8,7 +8,7 @@ import java.util.Properties;
  */
 public class ConfigPropertyReader {
 
-    private static String defaultConfigFile = "./resources/Config.properties";
+    private static String defaultConfigFile = "./src/main/resources/Config.properties";
     
     /**
      * Constructor of this class
