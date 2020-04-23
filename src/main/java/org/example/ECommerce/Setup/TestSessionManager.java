@@ -1,12 +1,11 @@
 package org.example.ECommerce.Setup;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.example.ECommerce.Utilities.ConfigPropertyReader.getProperty;
+import static org.example.ECommerce.Utilities.Readers.ConfigPropertyReader.getProperty;
 
 public class TestSessionManager {
     WebDriver driver;

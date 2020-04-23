@@ -1,4 +1,4 @@
-package org.example.ECommerce.Utilities;
+package org.example.ECommerce.Utilities.Selenium;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

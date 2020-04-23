@@ -1,4 +1,4 @@
-package org.example.ECommerce.Utilities;
+package org.example.ECommerce.Utilities.Readers;
 
 import java.util.Properties;
 

@@ -17,13 +17,13 @@ public class SearchPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver,this);
     }
-    public SearchPage selectFirstFromList()
+    public ProductDetailsPage selectFirstFromList()
     {
         for (WebElement element: searchList) {
             log("List has : "+ element.getText());
             System.out.println(element.getText());
         }
         selectFirstOptionFromList(searchList);
-        return this;
+        return new ProductDetailsPage(driver);
     }
 }

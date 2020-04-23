@@ -1,10 +1,9 @@
 package org.example.ECommerce.Pages;
 
-import org.example.ECommerce.Utilities.SeleniumWait;
+import org.example.ECommerce.Utilities.Selenium.SeleniumWait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 
 import java.util.List;
@@ -29,6 +28,10 @@ public class BasePage {
         element.click();
 
     }
+    protected String getText(WebElement element)
+    {
+        return element.getText();
+    }
     protected void sendKeys(WebElement element, String text)
     {
         wait.waitForElementToBeVisible(element);
@@ -46,6 +49,11 @@ public class BasePage {
     {
         wait.waitForElementToBeClickable(elements.get(0));
         click(elements.get(0));
+
+    }
+    protected void selectFromDropDownByText(WebElement element,String text)
+    {
+        new Select(element).selectByVisibleText(text);
 
     }
     public void log(String message)
