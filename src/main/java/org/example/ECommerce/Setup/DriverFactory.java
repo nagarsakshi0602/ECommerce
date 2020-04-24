@@ -35,6 +35,7 @@ public class DriverFactory {
     }
      private WebDriver getChromeDriver()
      {
+
          return new ChromeDriver();
      }
      private WebDriver getFirefoxDriver()

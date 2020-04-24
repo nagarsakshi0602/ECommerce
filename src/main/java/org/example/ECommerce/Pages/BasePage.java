@@ -1,6 +1,7 @@
 package org.example.ECommerce.Pages;
 
 import org.example.ECommerce.Utilities.Selenium.SeleniumWait;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -27,6 +28,11 @@ public class BasePage {
         wait.waitForElementToBeClickable(element);
         element.click();
 
+    }
+    protected void scrollToElement(WebElement element)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();",element );
     }
     protected String getText(WebElement element)
     {

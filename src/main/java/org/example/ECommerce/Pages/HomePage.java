@@ -12,6 +12,7 @@ public class HomePage extends BasePage {
     private WebElement inputPassword;
     @FindBy(css = "button.btn.btn--narrow")
     private WebElement btnEnter;
+
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver,this);

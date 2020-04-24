@@ -41,12 +41,19 @@ public class ProductDetailsPage  extends BasePage{
     public ProductDetailsPage addToCart()
     {
         click(addToCart);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return this;
     }
     public CartDetailsPage viewCart()
     {
         click(viewCart);
+
         return new CartDetailsPage(driver);
+
     }
 
 }

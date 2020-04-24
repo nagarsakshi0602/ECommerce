@@ -1,5 +1,6 @@
 package org.example.ECommerce.Setup;
 
+import org.example.ECommerce.Utilities.Readers.YamlReader;
 import org.openqa.selenium.WebDriver;
 
 import java.util.HashMap;
@@ -8,16 +9,19 @@ import java.util.Map;
 import static org.example.ECommerce.Utilities.Readers.ConfigPropertyReader.getProperty;
 
 public class TestSessionManager {
-    WebDriver driver;
+    public WebDriver driver;
     DriverFactory wd;
+    YamlReader yaml;
 
     public TestSessionManager()
     {
         wd = new DriverFactory();
+        yaml = new YamlReader("src/test/resources/Data/TestData.yml");
     }
     public void setDriver()
     {
         driver = wd.getDriver(getConfigurations());
+        driver.manage().window().maximize();
 
     }
     private Map<String,String> getConfigurations()

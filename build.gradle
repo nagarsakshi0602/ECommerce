@@ -15,7 +15,16 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation 'org.testng:testng:7.1.0'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'org.seleniumhq.selenium:selenium-server:3.141.59'
+    implementation 'ru.yandex.qatools.ashot:ashot:1.5.4'
+    implementation 'org.uncommons:reportng:1.1.4'
+
 }
-test{
-    useTestNG()
+task runTests(type: Test) {
+    useTestNG() {
+        useDefaultListeners = false
+        listeners << 'org.example.ECommerce.Utilities.Listeners.TestNGCustomReportListener'
+        listeners << 'org.example.ECommerce.Utilities.Listeners.TakeScreenshot'
+
+    }
 }

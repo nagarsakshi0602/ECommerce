@@ -14,6 +14,10 @@ public class CartDetailsPage extends BasePage {
     @FindBy(css = ".cart__product-title")
     private List<WebElement> productTitle;
 
+    @FindBy(xpath = "//h1[text()='Your cart']/following-sibling::a[contains(@class,'text-link')]")
+    private WebElement continueShopping;
+
+
     public CartDetailsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver,this);
@@ -75,5 +79,16 @@ public class CartDetailsPage extends BasePage {
         return flag;
 
     }
+    public ProductsListPage continueShopping()
+    {
+        click(continueShopping);
+        return  new ProductsListPage(driver);
+    }
+    public int findNoOfItemsAddedInDifferentSize(String productTitle)
+    {
+        List<WebElement> elements = driver.findElements(By.xpath("//a[contains(@class,'cart__product-title') and normalize-space(text())='"+productTitle+"']"));
+        return elements.size();
+    }
+
 
 }

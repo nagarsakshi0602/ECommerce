@@ -1,0 +1,15 @@
+url: http://ecom-optimus.myshopify.com
+credentials:
+  password: idgad
+productDetails:
+  productName: RoundNeck Shirt
+  color: White
+  size: S
+featuredCollection:
+  productName: RoundNeck Shirt 14
+  color: Silver
+  size: M
+anotherProduct:
+  productName: Another Round Neck Shirt
+  color: White
+  size: XL
