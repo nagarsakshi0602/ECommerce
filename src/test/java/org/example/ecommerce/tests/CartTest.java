@@ -51,7 +51,7 @@ public class CartTest {
                 .addToCart()
                 .viewCart();
         Assert.assertEquals(cartDetailsPage
-                .findNoOfItemsAddedInDifferentSize(getYamlValue("productDetails.productName")), 2);
+                .getNoOfItemsInCart(getYamlValue("productDetails.productName")), 2);
     }
 
     @Test

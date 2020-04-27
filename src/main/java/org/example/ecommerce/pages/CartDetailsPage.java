@@ -78,7 +78,7 @@ public class CartDetailsPage extends BasePage {
         return new ProductsListPage(driver);
     }
 
-    public int findNoOfItemsAddedInDifferentSize(String productTitle) {
+    public int getNoOfItemsInCart(String productTitle) {
         List<WebElement> elements = driver.findElements(
                 By.xpath("//a[contains(@class,'cart__product-title') and normalize-space(text())='" + productTitle + "']"));
         return elements.size();

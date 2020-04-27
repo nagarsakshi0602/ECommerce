@@ -4,12 +4,9 @@ credentials:
 productDetails:
   productName: RoundNeck Shirt
   color: White
-  size: S
+  size1: S
+  size2: M
 featuredCollection:
   productName: RoundNeck Shirt 14
   color: Silver
   size: M
-anotherProduct:
-  productName: Another Round Neck Shirt
-  color: White
-  size: XL
