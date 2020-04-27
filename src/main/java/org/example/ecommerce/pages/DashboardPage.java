@@ -1,4 +1,4 @@
-package org.example.ECommerce.Pages;
+package org.example.ecommerce.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage extends BasePage {
+
     @FindBy(css = "button.site-header__search-toggle")
     private WebElement btnSearchBar;
 
@@ -23,16 +24,13 @@ public class DashboardPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver,this);
     }
-    public SearchPage enterProductToSearch(String product)
-    {
+    public SearchPage enterProductToSearch(String product) {
         click(btnSearchBar);
         sendKeys(inputSearch,product);
         click(btnSearch);
-
         return new SearchPage(driver);
     }
-    public ProductDetailsPage selectFromFeaturedCollection(String productTitle)
-    {
+    public ProductDetailsPage selectFromFeaturedCollection(String productTitle) {
         scrollToElement(featuredCollectionHeading);
         WebElement element = featuredCollectionHeading.findElement(By.xpath("//a/span[text()='"+productTitle+"']/.."));
         click(element);

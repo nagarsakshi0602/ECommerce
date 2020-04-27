@@ -16,7 +16,8 @@ dependencies {
     implementation 'org.testng:testng:7.1.0'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     implementation 'org.seleniumhq.selenium:selenium-server:3.141.59'
-
+    implementation 'ru.yandex.qatools.ashot:ashot:1.5.4'
+    implementation 'org.uncommons:reportng:1.1.4'
 
 }
 task runTests(type: Test) {

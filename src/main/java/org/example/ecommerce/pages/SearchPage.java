@@ -1,11 +1,9 @@
-package org.example.ECommerce.Pages;
+package org.example.ecommerce.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Reporter;
 
 import java.util.List;
 
@@ -17,8 +15,7 @@ public class SearchPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver,this);
     }
-    public ProductDetailsPage selectFirstFromList()
-    {
+    public ProductDetailsPage selectFirstFromList() {
         for (WebElement element: searchList) {
             log("List has : "+ element.getText());
             System.out.println(element.getText());

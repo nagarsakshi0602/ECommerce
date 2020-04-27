@@ -6,17 +6,17 @@
            skipped="0"
            time="38.768">
   <properties />
-            <testcase name="addProductToCartAndValidate" time="38.768" classname="org.example.ECommerce.Tests.AddProductToCartTest">
+            <testcase name="addProductToCartAndValidate" time="38.768" classname="org.example.ecommerce.tests.AddProductToCartTest">
                 <failure type="org.openqa.selenium.TimeoutException"
                   message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: button.site-header__search-toggle&apos; (tried for 30 second(s) with 500 milliseconds interval)"
               >
-<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: button.site-header__search-toggle' (tried for 30 second(s) with 500 milliseconds interval)
+                    <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: button.site-header__search-toggle' (tried for 30 second(s) with 500 milliseconds interval)
   org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
   org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-  org.example.ECommerce.Utilities.Selenium.SeleniumWait.waitForElementToBeVisible(SeleniumWait.java:16)
-  org.example.ECommerce.Pages.BasePage.click(BasePage.java:26)
-  org.example.ECommerce.Pages.DashboardPage.enterProductToSearch(DashboardPage.java:24)
-  org.example.ECommerce.Tests.AddProductToCartTest.addProductToCartAndValidate(AddProductToCartTest.java:30)
+  org.example.ecommerce.utilities.selenium.SeleniumWait.waitForElementToBeVisible(SeleniumWait.java:16)
+  BasePage.click(BasePage.java:26)
+  DashboardPage.enterProductToSearch(DashboardPage.java:24)
+  org.example.ecommerce.tests.AddProductToCartTest.addProductToCartAndValidate(AddProductToCartTest.java:30)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -62,10 +62,10 @@ Session ID: d370c098beb3b7868b73a9238cfffdec
   org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
   org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
   org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-  org.example.ECommerce.Utilities.Selenium.SeleniumWait.waitForElementToBeVisible(SeleniumWait.java:16)
-  org.example.ECommerce.Pages.BasePage.click(BasePage.java:26)
-  org.example.ECommerce.Pages.DashboardPage.enterProductToSearch(DashboardPage.java:24)
-  org.example.ECommerce.Tests.AddProductToCartTest.addProductToCartAndValidate(AddProductToCartTest.java:30)
+  org.example.ecommerce.utilities.selenium.SeleniumWait.waitForElementToBeVisible(SeleniumWait.java:16)
+  BasePage.click(BasePage.java:26)
+  DashboardPage.enterProductToSearch(DashboardPage.java:24)
+  org.example.ecommerce.tests.AddProductToCartTest.addProductToCartAndValidate(AddProductToCartTest.java:30)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -82,7 +82,7 @@ Session ID: d370c098beb3b7868b73a9238cfffdec
   java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
   java.lang.Thread.run(Thread.java:748)
 ]]>
-      </failure>
+                </failure>
 
           </testcase>
   

@@ -2,14 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.example.ECommerce.Utilities.Readers;
-
+package org.example.ecommerce.utilities.readers;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.Map;
-
 import org.yaml.snakeyaml.Yaml;
 import org.testng.Reporter;
 
@@ -19,17 +17,14 @@ public class YamlReader {
 
     public static String yamlFilePath = null;
 
-    public YamlReader(String filePath)
-    {
-       yamlFilePath = filePath;
+    public YamlReader(String filePath) {
+        yamlFilePath = filePath;
     }
     public static String loadYaml() {
     	try {
 			new FileReader(yamlFilePath);
-			
-		} catch (FileNotFoundException e) {
-
-			System.exit(0);
+    	} catch (FileNotFoundException e) {
+    	    System.exit(0);
 		}
         return yamlFilePath;
     }
@@ -42,11 +37,10 @@ public class YamlReader {
             return null;
         }
     }
-    
+
     public static String getData(String token) {
         return getYamlValue(token);
     }
-
     public static Map<String, Object> getYamlValues(String token) {
         Reader doc;
         try {
@@ -57,13 +51,15 @@ public class YamlReader {
             return null;
         }
         Yaml yaml = new Yaml();
-        
-        
         // TODO: check the type casting of object into the Map and create instance in one place
         Map<String, Object> object = (Map<String, Object>) yaml.load(doc);
         return parseMap(object, token + ".");
     }
-    
+    public static String getMapValue(Map<String, Object> object, String token) {
+        // TODO: check for proper yaml token string based on presence of '.'
+        String[] st = token.split("\\.");
+        return parseMap(object, token).get(st[st.length - 1]).toString();
+    }
 
     private static String getValue(String token) throws FileNotFoundException {
 		Reader doc = null;
@@ -78,12 +74,6 @@ public class YamlReader {
         return getMapValue(object, token);
     }
 
-    public static String getMapValue(Map<String, Object> object, String token) {
-        // TODO: check for proper yaml token string based on presence of '.'
-        String[] st = token.split("\\.");
-        return parseMap(object, token).get(st[st.length - 1]).toString();
-    }
-
     private static Map<String, Object> parseMap(Map<String, Object> object,
             String token) {
         if (token.contains(".")) {
@@ -93,7 +83,4 @@ public class YamlReader {
         }
         return object;
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-package org.example.ECommerce.Utilities.Selenium;
+package org.example.ecommerce.utilities.selenium;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumWait {
+
     WebDriverWait wait;
-    public SeleniumWait(WebDriver driver)
-    {
+
+    public SeleniumWait(WebDriver driver) {
         wait = new WebDriverWait(driver,30);
     }
     public void waitForElementToBeVisible(WebElement element) {
@@ -21,8 +22,8 @@ public class SeleniumWait {
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-    public void waitForPageToLoadCompletely()
-    {
-        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+    public void waitForPageToLoadCompletely() {
+        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript(
+                "return document.readyState").equals("complete"));
     }
 }

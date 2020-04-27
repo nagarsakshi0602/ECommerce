@@ -1,7 +1,6 @@
-package org.example.ECommerce.Utilities.Readers;
+package org.example.ecommerce.utilities.readers;
 
 import java.util.Properties;
-
 /**
  * This is the utility class for data Read/Write
  *
@@ -9,15 +8,11 @@ import java.util.Properties;
 public class ConfigPropertyReader {
 
     private static String defaultConfigFile = "./src/main/resources/Config.properties";
-    
     /**
      * Constructor of this class
      * 
      */
-    public ConfigPropertyReader() {
-    	
-    }
-
+    public ConfigPropertyReader() { }
     /**
      *
      * This method will get the properties pulled from a file located relative to the base dir

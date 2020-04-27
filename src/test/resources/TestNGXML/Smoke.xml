@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Smoke Checklist" preserve-order="true" parallel="tests" thread-count="4">
 <listeners>
-    <listener class-name="org.example.ECommerce.Utilities.Listeners.TakeScreenshot" />
-    <listener class-name="org.example.ECommerce.Utilities.Listeners.TestNGCustomReportListener"></listener>
+    <listener class-name="org.example.ecommerce.utilities.listeners.TakeScreenshot" />
+    <listener class-name="org.example.ecommerce.utilities.listeners.TestNGCustomReportListener"></listener>
 
 </listeners>
     <test name="Cart Module" preserve-order="true" >
         <classes>
 
-            <class name="org.example.ECommerce.Tests.AddProductToCartTest"></class>
-            <class name="org.example.ECommerce.Tests.IncreaseQuantityInCartTest"></class>
-            <class name="org.example.ECommerce.Tests.AddProductFromFeaturedCollection"></class>
-            <class name="org.example.ECommerce.Tests.AddProductOfDifferentSizeToCart"></class>
+            <class name="org.example.ecommerce.tests.AddProductToCartTest"></class>
+            <class name="org.example.ecommerce.tests.IncreaseQuantityInCartTest"></class>
+            <class name="org.example.ecommerce.tests.CartTest"></class>
+            <class name="org.example.ecommerce.tests.AddProductOfDifferentSizeToCart"></class>
 
         </classes>
     </test>
