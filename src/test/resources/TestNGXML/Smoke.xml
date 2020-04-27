@@ -9,10 +9,7 @@
     <test name="Cart Module" preserve-order="true" >
         <classes>
 
-            <class name="org.example.ecommerce.tests.AddProductToCartTest"></class>
-            <class name="org.example.ecommerce.tests.IncreaseQuantityInCartTest"></class>
             <class name="org.example.ecommerce.tests.CartTest"></class>
-            <class name="org.example.ecommerce.tests.AddProductOfDifferentSizeToCart"></class>
 
         </classes>
     </test>
