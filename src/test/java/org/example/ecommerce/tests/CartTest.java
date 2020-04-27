@@ -14,7 +14,7 @@ import static org.example.ecommerce.utilities.readers.YamlReader.getYamlValue;
 public class CartTest {
     TestSessionManager testSession;
     DashboardPage dashboardPage;
-    private CartDetailsPage cartDetailsPage;
+    CartDetailsPage cartDetailsPage;
 
     @BeforeTest
     public void setUp() {
@@ -41,9 +41,7 @@ public class CartTest {
     @Test
     public void addDifferentSizeProductsToCartAndValidate() {
 
-        Assert.assertEquals(new HomePage(testSession.getDriver())
-                .launch(getYamlValue("url"))
-                .loginUsingPassword(getYamlValue("credentials.password"))
+        cartDetailsPage = dashboardPage
                 .enterProductToSearch(getYamlValue("productDetails.productName"))
                 .selectFirstFromList()
                 .selectColor(getYamlValue("productDetails.color"))
@@ -51,36 +49,35 @@ public class CartTest {
                 .addToCart()
                 .selectSize(getYamlValue("productDetails.size2"))
                 .addToCart()
-                .viewCart()
+                .viewCart();
+        Assert.assertEquals(cartDetailsPage
                 .findNoOfItemsAddedInDifferentSize(getYamlValue("productDetails.productName")), 2);
     }
 
     @Test
     public void addProductToCartAndValidate() {
-        Assert.assertEquals(new HomePage(testSession.getDriver())
-                .launch(getYamlValue("url"))
-                .loginUsingPassword(getYamlValue("credentials.password"))
+        cartDetailsPage = dashboardPage
                 .enterProductToSearch(getYamlValue("productDetails.productName"))
                 .selectFirstFromList()
                 .selectColor(getYamlValue("productDetails.color"))
                 .selectSize(getYamlValue("productDetails.size"))
                 .addToCart()
-                .viewCart()
+                .viewCart();
+        Assert.assertEquals(cartDetailsPage
                 .getProductTitle(), getYamlValue("productDetails.productName"));
     }
 
     @Test
     public void increaseQuantityAndValidateTotal() {
-        Assert.assertTrue(new HomePage(testSession.getDriver())
-                .launch(getYamlValue("url"))
-                .loginUsingPassword(getYamlValue("credentials.password"))
+        cartDetailsPage = dashboardPage
                 .enterProductToSearch(getYamlValue("productDetails.productName"))
                 .selectFirstFromList()
                 .selectColor(getYamlValue("productDetails.color"))
                 .selectSize(getYamlValue("productDetails.size"))
                 .addToCart()
                 .viewCart()
-                .enterQuantityForProduct(getYamlValue("productDetails.productName"), 2)
+                .enterQuantityForProduct(getYamlValue("productDetails.productName"), 2);
+        Assert.assertTrue(cartDetailsPage
                 .compareThePriceAsPerQuantity(getYamlValue("productDetails.productName")));
     }
 
