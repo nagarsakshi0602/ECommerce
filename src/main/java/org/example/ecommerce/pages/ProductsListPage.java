@@ -9,10 +9,11 @@ public class ProductsListPage extends BasePage {
 
     public ProductsListPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     public ProductDetailsPage selectProduct(String productTitle) {
-        WebElement element = driver.findElement(By.xpath("//span[text()='"+productTitle+"']/ancestor::a"));
+        WebElement element = driver.findElement(By.xpath("//span[text()='" + productTitle + "']/ancestor::a"));
         click(element);
         return new ProductDetailsPage(driver);
     }

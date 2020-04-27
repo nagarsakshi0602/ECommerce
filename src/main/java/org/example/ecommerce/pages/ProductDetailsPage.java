@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductDetailsPage  extends BasePage{
+public class ProductDetailsPage extends BasePage {
 
     @FindBy(css = "h1.product-single__title")
     private WebElement productName;
 
-    @FindBy(css= "div.product__price span.price-item--regular")
+    @FindBy(css = "div.product__price span.price-item--regular")
     private WebElement price;
 
     @FindBy(xpath = "//label[contains(text(),'Color')]/following-sibling::select")
@@ -27,16 +27,19 @@ public class ProductDetailsPage  extends BasePage{
 
     public ProductDetailsPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     public ProductDetailsPage selectColor(String color) {
-        selectFromDropDownByText(this.color,color);
+        selectFromDropDownByText(this.color, color);
         return this;
     }
+
     public ProductDetailsPage selectSize(String size) {
-        selectFromDropDownByText(this.size,size);
+        selectFromDropDownByText(this.size, size);
         return this;
     }
+
     public ProductDetailsPage addToCart() {
         click(addToCart);
         try {
@@ -46,6 +49,7 @@ public class ProductDetailsPage  extends BasePage{
         }
         return this;
     }
+
     public CartDetailsPage viewCart() {
         click(viewCart);
         return new CartDetailsPage(driver);

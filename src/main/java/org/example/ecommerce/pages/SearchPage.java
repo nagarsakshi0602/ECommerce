@@ -13,11 +13,12 @@ public class SearchPage extends BasePage {
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     public ProductDetailsPage selectFirstFromList() {
-        for (WebElement element: searchList) {
-            log("List has : "+ element.getText());
+        for (WebElement element : searchList) {
+            log("List has : " + element.getText());
             System.out.println(element.getText());
         }
         selectFirstOptionFromList(searchList);

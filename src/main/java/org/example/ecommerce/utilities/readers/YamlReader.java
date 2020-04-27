@@ -4,12 +4,13 @@
  */
 package org.example.ecommerce.utilities.readers;
 
+import org.testng.Reporter;
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.Map;
-import org.yaml.snakeyaml.Yaml;
-import org.testng.Reporter;
 
 
 @SuppressWarnings("unchecked")
@@ -20,12 +21,13 @@ public class YamlReader {
     public YamlReader(String filePath) {
         yamlFilePath = filePath;
     }
+
     public static String loadYaml() {
-    	try {
-			new FileReader(yamlFilePath);
-    	} catch (FileNotFoundException e) {
-    	    System.exit(0);
-		}
+        try {
+            new FileReader(yamlFilePath);
+        } catch (FileNotFoundException e) {
+            System.exit(0);
+        }
         return yamlFilePath;
     }
 
@@ -41,6 +43,7 @@ public class YamlReader {
     public static String getData(String token) {
         return getYamlValue(token);
     }
+
     public static Map<String, Object> getYamlValues(String token) {
         Reader doc;
         try {
@@ -55,6 +58,7 @@ public class YamlReader {
         Map<String, Object> object = (Map<String, Object>) yaml.load(doc);
         return parseMap(object, token + ".");
     }
+
     public static String getMapValue(Map<String, Object> object, String token) {
         // TODO: check for proper yaml token string based on presence of '.'
         String[] st = token.split("\\.");
@@ -62,20 +66,20 @@ public class YamlReader {
     }
 
     private static String getValue(String token) throws FileNotFoundException {
-		Reader doc = null;
-		try {
-			doc = new FileReader(yamlFilePath);
-		} catch (FileNotFoundException e) {
-			Reporter.log("Wrong filePath", true);
-			return null;
-		}
-		Yaml yaml = new Yaml();
+        Reader doc = null;
+        try {
+            doc = new FileReader(yamlFilePath);
+        } catch (FileNotFoundException e) {
+            Reporter.log("Wrong filePath", true);
+            return null;
+        }
+        Yaml yaml = new Yaml();
         Map<String, Object> object = (Map<String, Object>) yaml.load(doc);
         return getMapValue(object, token);
     }
 
     private static Map<String, Object> parseMap(Map<String, Object> object,
-            String token) {
+                                                String token) {
         if (token.contains(".")) {
             String[] st = token.split("\\.");
             object = parseMap((Map<String, Object>) object.get(st[0]),

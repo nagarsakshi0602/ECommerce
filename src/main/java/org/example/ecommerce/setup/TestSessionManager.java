@@ -1,11 +1,12 @@
 package org.example.ecommerce.setup;
 
-import static org.example.ecommerce.utilities.readers.ConfigPropertyReader.getProperty;
-
 import org.example.ecommerce.utilities.readers.YamlReader;
 import org.openqa.selenium.WebDriver;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.example.ecommerce.utilities.readers.ConfigPropertyReader.getProperty;
 
 public class TestSessionManager {
     public WebDriver driver;
@@ -16,24 +17,28 @@ public class TestSessionManager {
         wd = new DriverFactory();
         yaml = new YamlReader("src/test/resources/Data/TestData.yml");
     }
+
     public void setDriver() {
         driver = wd.getDriver(getConfigurations());
         driver.manage().window().maximize();
     }
+
     public WebDriver getDriver() {
         return driver;
     }
+
     public void tearDown() {
         driver.quit();
     }
-    private Map<String,String> getConfigurations() {
-        String[] configKeys = { "browserName", "seleniumserver","seleniumserverhosturl"};
+
+    private Map<String, String> getConfigurations() {
+        String[] configKeys = {"browserName", "seleniumserver", "seleniumserverhosturl"};
         Map<String, String> config = new HashMap<String, String>();
         for (String string : configKeys) {
             try {
-                if (System.getProperty(string).isEmpty()){
+                if (System.getProperty(string).isEmpty()) {
                     config.put(string, getProperty("src/main/resources/Config.properties", string));
-                } else{
+                } else {
                     config.put(string, System.getProperty(string));
                 }
             } catch (NullPointerException e) {

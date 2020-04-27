@@ -18,16 +18,18 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     public HomePage launch(String url) {
         enterUrl(url);
         return this;
     }
+
     public DashboardPage loginUsingPassword(String pass) {
         click(password);
         log("User clicked on Enter Password Button");
-        sendKeys(inputPassword,pass);
+        sendKeys(inputPassword, pass);
         click(btnEnter);
         return new DashboardPage(driver);
     }

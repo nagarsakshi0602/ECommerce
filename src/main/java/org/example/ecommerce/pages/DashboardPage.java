@@ -14,7 +14,7 @@ public class DashboardPage extends BasePage {
     @FindBy(name = "q")
     private WebElement inputSearch;
 
-    @FindBy(css= "button.search-bar__submit")
+    @FindBy(css = "button.search-bar__submit")
     private WebElement btnSearch;
 
     @FindBy(xpath = "//div[contains(@class,'section-header')]/h2")
@@ -22,17 +22,19 @@ public class DashboardPage extends BasePage {
 
     public DashboardPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     public SearchPage enterProductToSearch(String product) {
         click(btnSearchBar);
-        sendKeys(inputSearch,product);
+        sendKeys(inputSearch, product);
         click(btnSearch);
         return new SearchPage(driver);
     }
+
     public ProductDetailsPage selectFromFeaturedCollection(String productTitle) {
         scrollToElement(featuredCollectionHeading);
-        WebElement element = featuredCollectionHeading.findElement(By.xpath("//a/span[text()='"+productTitle+"']/.."));
+        WebElement element = featuredCollectionHeading.findElement(By.xpath("//a/span[text()='" + productTitle + "']/.."));
         click(element);
         return new ProductDetailsPage(driver);
     }
